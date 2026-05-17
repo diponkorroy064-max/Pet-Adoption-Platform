@@ -14,9 +14,9 @@ const Navbar = () => {
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                         <li><Link href={"/"}>Home</Link></li>
-                        <li><Link href={"/"}>All Pets</Link></li>
-                        <li><Link href={"/"}>My Request</Link></li>
-                        <li><Link href={"/"}>Add Pet</Link></li>
+                        <li><Link href={"/all-pets"}>All Pets</Link></li>
+                        <li><Link href={"/my-request"}>My Request</Link></li>
+                        <li><Link href={"/add-pet"}>Add Pet</Link></li>
 
                         
                     </ul>
@@ -26,10 +26,9 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link href={"/"}>Home</Link></li>
-                    <li><Link href={"/"}>All Pets</Link></li>
-                    <li><Link href={"/"}>My Request</Link></li>
-                    <li><Link href={"/"}>Add Pet</Link></li>
-            
+                    <li><Link href={"/all-pets"}>All Pets</Link></li>
+                    <li><Link href={"/my-request"}>My Request</Link></li>
+                    <li><Link href={"/add-pet"}>Add Pet</Link></li>
                     
                 </ul>
             </div>

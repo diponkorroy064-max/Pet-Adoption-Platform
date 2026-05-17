@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import bannarImg from '@/assets/bannar1.avif'
+import bannarImg from '@/assets/bannar2.avif'
 
 const Bannar = () => {
     return (
