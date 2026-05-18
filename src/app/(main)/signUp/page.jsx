@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { Check } from '@gravity-ui/icons';
 import { Button, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import Link from 'next/link';
@@ -6,6 +7,7 @@ import React, { useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-toastify';
 
 
 
@@ -18,30 +20,31 @@ const SignUpPage = () => {
         const user = Object.fromEntries(formData.entries());
         console.log(user);
 
-        // const { data, error } = await authClient.signUp.email({
-        //     name: user.name,
-        //     image: user.image,
-        //     email: user.email,
-        //     password: user.password,
-        //     callbackURL: "/signIn",
-        // });
+        const { data, error } = await authClient.signUp.email({
+            name: user.name,
+            image: user.image,
+            email: user.email,
+            password: user.password,
+            callbackURL: "/signIn",
+        });
 
-        // console.log("sign up response", data, error);
+        console.log("sign up response", data, error);
 
-        // if (error) {
-        //     toast.error("Sign up failed " + error.message);
-        // }
-        // else if (data) {
-        //     toast.success("Sign up successfull! Verify your Email")
-        // }
+        if (error) {
+            toast.error("Sign up failed " + error.message);
+        }
+        else if (data) {
+            toast.success("Sign up successfull! Verify your Email")
+        }
+    };
+
+
+    const handleSigninGoogle = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+            callbackURL: "signIn"
+        })
     }
-
-    // const handleSigninGoogle = async () => {
-    //     await authClient.signIn.social({
-    //         provider: "google",
-    //         callbackURL: "signIn"
-    //     })
-    // }
 
 
     return (
@@ -150,7 +153,7 @@ const SignUpPage = () => {
                 </Form>
 
                 <div className='flex justify-center flex-col space-y-3'>
-                    <Button className="w-full rounded-none bg-white border border-gray-300 hover:bg-cyan-200 text-gray-900"><FcGoogle /> Continue with Google</Button>
+                    <Button onClick={handleSigninGoogle} className="w-full rounded-none bg-white border border-gray-300 hover:bg-cyan-200 text-gray-900"><FcGoogle /> Continue with Google</Button>
 
                     <h2 className='text-center'>Already have an account? <span><Link className='text-red-500' href={'/signIn'}>Sign In</Link></span></h2>
                 </div>
