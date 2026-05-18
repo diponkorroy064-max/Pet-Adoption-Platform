@@ -9,7 +9,6 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-3 gap-10 border-b border-gray-700 pb-10">
 
-                    {/* Brand Info */}
                     <div>
                         <h2 className="text-2xl font-bold mb-4">YourBrand</h2>
                         <p className="text-gray-400 leading-relaxed">
@@ -18,7 +17,6 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Contact Information */}
                     <div>
                         <h3 className="text-xl font-semibold mb-4">
                             Contact Information
@@ -31,7 +29,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Social Links */}
                     <div>
                         <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
 
