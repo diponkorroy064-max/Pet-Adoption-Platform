@@ -1,6 +1,8 @@
-import { Button } from "@heroui/react";
+'use client'
 import Link from "next/link";
 import Navlinks from "./Navlinks";
+import { authClient } from "@/lib/auth-client";
+import ProfileDropdown from "./ProfileDropdown";
 
 
 const links = <>
@@ -12,6 +14,12 @@ const links = <>
 
 
 const Navbar = () => {
+    const { data, isPending } = authClient.useSession();
+    // console.log("data from navbar", data);
+    const user = data?.user;
+    // console.log("user in  navbar", user);
+
+
     return (
         <div className="container mx-auto navbar bg-base-100 shadow px-10">
 
@@ -22,7 +30,7 @@ const Navbar = () => {
                     </div>
 
                     <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 border border-gray-300 rounded-md z-1 mt-3 w-52 p-2 shadow">
-                       {links}
+                        {links}
                     </ul>
                 </div>
 
@@ -31,12 +39,20 @@ const Navbar = () => {
 
             <div className="navbar-center hidden md:flex">
                 <ul className="menu menu-horizontal px-1">
-                  {links}
+                    {links}
                 </ul>
             </div>
 
             <div className="navbar-end">
-                <Link href={"/signIn"}>Sign In</Link>
+                {isPending && <h2>Loading...</h2>}
+                <div>
+                    {
+                        user ? (<div className="flex justify-center items-center gap-3">
+                            <h2 className="text-xl font-bold text-green-500">{user?.name}</h2>
+                            <ProfileDropdown></ProfileDropdown>
+                        </div>) : (<Link href={"/signIn"}>Sign In</Link>)
+                    }
+                </div>
             </div>
         </div>
     );
