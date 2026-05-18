@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 const Featured = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             This is a featured dynamic section
         </div>
     );

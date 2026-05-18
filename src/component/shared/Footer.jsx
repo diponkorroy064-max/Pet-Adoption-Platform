@@ -5,7 +5,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/f
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 text-white pt-12 pb-6">
+        <footer className="container mx-auto bg-gray-900 text-white pt-12 pb-6">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid md:grid-cols-3 gap-10 border-b border-gray-700 pb-10">
 
@@ -71,7 +71,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Copyright */}
                 <div className="text-center text-gray-500 mt-6 text-sm">
                     © {new Date().getFullYear()} YourBrand. All rights reserved.
                 </div>

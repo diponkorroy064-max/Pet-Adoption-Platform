@@ -1,8 +1,8 @@
-import Footer from '@/component/Footer';
-import Navbar from '@/component/Navbar';
+import Footer from '@/component/shared/Footer';
+import Navbar from '@/component/shared/Navbar';
 import React from 'react';
 
-const MainLayout = ({children}) => {
+const MainLayout = ({ children }) => {
     return (
         <div>
             <Navbar></Navbar>

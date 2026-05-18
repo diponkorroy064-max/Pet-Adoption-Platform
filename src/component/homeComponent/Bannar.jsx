@@ -2,9 +2,10 @@ import Image from 'next/image';
 import React from 'react';
 import bannarImg from '@/assets/bannar2.avif'
 
+
 const Bannar = () => {
     return (
-        <section className="relative w-full h-[60vh] min-h-125 md:h-[80vh] flex items-center justify-start text-white overflow-hidden">
+        <section className="container mx-auto relative w-full h-[60vh] min-h-125 md:h-[80vh] flex items-center justify-start text-white overflow-hidden">
 
             {/* Background Banner Image */}
             <div className="absolute inset-0 z-0">
