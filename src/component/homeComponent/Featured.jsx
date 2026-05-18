@@ -7,7 +7,7 @@ const Featured = async() => {
      const petsInfo = await getPets();
     // console.log(petsInfo);
     const topPets = petsInfo.slice(0, 4);
-    console.log("top pets",topPets);
+    // console.log("top pets",topPets);
     
     return (
         <div className='container mx-auto py-6'>
