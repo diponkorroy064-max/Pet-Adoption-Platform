@@ -9,21 +9,22 @@ const ProfileDropdown = () => {
     const { data, isPending } = authClient.useSession();
     // console.log("data from navbar", data);
     const user = data?.user;
-    console.log("user in profile Dropdown", user);
+    // console.log("user in profile Dropdown", user);
 
 
     return (
         <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn m-1">
+            <div tabIndex={0} role="button" className="cursor-pointer">
                 <Avatar>
-                    <Avatar.Image alt="John Doe" src={user?.image} />
+                    <Avatar.Image className='hover:border-2 rounded-full border-red-400' alt="User" src={user?.image} />
                     <Avatar.Fallback>JD</Avatar.Fallback>
                 </Avatar>
             </div>
 
-            <div tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-md border border-gray-300 z-1 w-52 p-2 shadow-md">
-                <Button className="w-full rounded-md"><Link href={"/#"}>Dashboard</Link></Button>
-                <Button className="w-full rounded-md" onClick={async () => await authClient.signOut()}>Sign Out</Button>
+            <div tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-md border border-gray-300 z-40 w-60 p-2 shadow-md">
+                <Link className="w-full rounded-md btn btn-outline btn-secondary" href={"/add-pet"}> Add Pet</Link>
+                <Link className="w-full rounded-md btn btn-outline btn-secondary" href={"/myListings"}>My Listings</Link>
+                <p className="w-full rounded-md btn btn-outline btn-secondary" onClick={async () => await authClient.signOut()}>Sign Out</p>
             </div>
         </div>
     );

@@ -29,12 +29,15 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                     </div>
 
-                    <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 border border-gray-300 rounded-md z-1 mt-3 w-52 p-2 shadow">
+                    <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-base-100 border border-gray-300 rounded-md z-30 mt-3 w-52 p-2 shadow">
                         {links}
                     </ul>
                 </div>
 
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <div className="flex justify-center gap-4">
+                    <Link className="text-xl" href={"/"}>daisyUI</Link>
+                    <Link className="text-xl" href={"/"}>WEBName</Link>
+               </div>
             </div>
 
             <div className="navbar-center hidden md:flex">
@@ -50,7 +53,7 @@ const Navbar = () => {
                         user ? (<div className="flex justify-center items-center gap-3">
                             <h2 className="text-xl font-bold text-green-500">{user?.name}</h2>
                             <ProfileDropdown></ProfileDropdown>
-                        </div>) : (<Link href={"/signIn"}>Sign In</Link>)
+                        </div>) : (<Link className="btn btn-ghost" href={"/signIn"}>Sign In</Link>)
                     }
                 </div>
             </div>

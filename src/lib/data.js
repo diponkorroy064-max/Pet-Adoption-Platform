@@ -13,3 +13,13 @@ export const getPetsById = async(id) => {
     return pets;
 }
 
+
+export const getPetsByEmail = async (email) => {
+    const res = await fetch(`http://localhost:5000/pets/${email}`);
+    const pets = await res.json();
+    // console.log(pets);
+    return pets;
+}
+
+
+

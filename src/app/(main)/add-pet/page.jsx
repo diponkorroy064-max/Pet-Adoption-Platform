@@ -1,9 +1,19 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { Button, FieldError, Input, Label, ListBox, TextArea, TextField, Select } from '@heroui/react';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 
 const AddPetPage = () => {
+    const router = useRouter();
+
+    const { data } = authClient.useSession();
+        // console.log("data from add-pet page", data);
+        const owner = data?.user;
+        // console.log("owner in add-pet page", owner);
+
     const onSubmit = async (e) => {
         e.preventDefault()
 
@@ -19,7 +29,15 @@ const AddPetPage = () => {
             body: JSON.stringify(petsData)
         })
         const data = await res.json()
-        console.log(data);
+        console.log("response from add-pet", data);
+
+        if (data.acknowledged) {
+            toast.success("Successfully Added Pet Info.");
+            router.push("/myListings")
+        }
+        else {
+            toast.error("Failed to added pet info.")
+        }
     }
 
     
@@ -157,7 +175,7 @@ const AddPetPage = () => {
                             <FieldError />
                         </TextField>
 
-                        <TextField name="email" isRequired>
+                        <TextField name="email" defaultValue={owner?.email || "diponkor"}>
                             <Label>Owner Email</Label>
                             <Input type='email'
                                 placeholder="Enter Email"
