@@ -7,7 +7,7 @@ export const getPets = async () => {
 
 
 export const getPetsById = async(id) => {
-    const res = await fetch(`http://localhost:5000/pets/${id}`);
+    const res = await fetch(`http://localhost:5000/pets/${id}/byId`);
     const pets = await res.json();
     // console.log(pets);
     return pets;

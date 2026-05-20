@@ -11,10 +11,10 @@ const MyListingsPage = async () => {
         headers: await headers()
     })
     // console.log(session);
-    console.log(session?.user);
+    // console.log(session?.user);
     const ownerEmail = session?.user?.email;
     // console.log("owner in mylisting page", ownerEmail);
-    
+
     const filteredPets = await getPetsByEmail(ownerEmail);
     // console.log(filteredPets);
 
@@ -40,7 +40,8 @@ const MyListingsPage = async () => {
 
                 <div className='mb-10 space-y-10'>
                     {
-                        filteredPets?.map(pet => <ListingCard key={pet._id} pet={pet}></ListingCard>)
+                        filteredPets.length === 0 ? (<div className='text-center text-red-400 font-semibold'>There is no list of pet yet</div>) :
+                            filteredPets?.map(pet => <ListingCard key={pet._id} pet={pet}></ListingCard>)
                     }
                 </div>
             </div>

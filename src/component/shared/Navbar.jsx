@@ -3,6 +3,8 @@ import Link from "next/link";
 import Navlinks from "./Navlinks";
 import { authClient } from "@/lib/auth-client";
 import ProfileDropdown from "./ProfileDropdown";
+import logo from '@/assets/logo.png'
+import Image from "next/image";
 
 
 const links = <>
@@ -34,9 +36,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="flex justify-center gap-4">
+                <div className="flex justify-center items-center gap-4">
                     <Link className="text-xl" href={"/"}>daisyUI</Link>
-                    <Link className="text-xl" href={"/"}>WEBName</Link>
+                    <Link className="text-xl" href={"/"}><Image src={logo} width={20} height={20} alt="logo" className="w-20"/></Link>
                </div>
             </div>
 
