@@ -5,6 +5,7 @@ import { authClient } from "@/lib/auth-client";
 import ProfileDropdown from "./ProfileDropdown";
 import logo from '@/assets/logo.png'
 import Image from "next/image";
+import { PawPrint } from "lucide-react";
 
 
 const links = <>
@@ -37,8 +38,8 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex justify-center items-center gap-4">
-                    <Link className="text-xl" href={"/"}>daisyUI</Link>
-                    <Link className="text-xl" href={"/"}><Image src={logo} width={20} height={20} alt="logo" className="w-20"/></Link>
+                    <Link className="text-xl font-extrabold" href={"/"}>Pet Haven</Link>
+                    <Link className="text-xl" href={"/"}><PawPrint className="text-orange-400 font-extrabold" size={32} /></Link>
                </div>
             </div>
 

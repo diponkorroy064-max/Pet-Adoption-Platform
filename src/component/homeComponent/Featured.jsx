@@ -10,7 +10,7 @@ const Featured = async() => {
     // console.log("top pets",topPets);
     
     return (
-        <div className='container mx-auto py-6'>
+        <div className='container mx-auto mt-8 py-6'>
             <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
                 {
                     topPets.map(pet => <PetsCard key={pet._id} pet={pet}></PetsCard>)

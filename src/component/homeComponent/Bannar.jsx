@@ -30,7 +30,7 @@ const Bannar = () => {
 
                 <div className="mt-2">
                     <button
-                        className="px-8 py-4 bg-orange-600 hover:bg-orange-500 active:scale-95 text-white text-lg font-bold uppercase tracking-wider rounded-full transition-all duration-200 shadow-lg shadow-orange-600/30 hover:shadow-orange-500/40 cursor-pointer animate__animated animate__slideInUp" >
+                        className="px-8 py-4 bg-orange-600 hover:bg-orange-500 active:scale-95 text-white text-lg font-bold uppercase tracking-wider rounded-full transition-all duration-200 shadow-lg shadow-orange-600/30 hover:shadow-orange-500/40 cursor-pointer animate__animated animate__bounce" >
                         Adopt Now
                     </button>
                 </div>
