@@ -1,12 +1,22 @@
+
+import { getAdoptRequestById } from "@/lib/data";
 import { Rocket } from "@gravity-ui/icons";
 import { Button, Modal } from "@heroui/react";
 import { Table } from "@heroui/react";
 
 
-const RequestListingModal = () => {
+const RequestListingModal = async ({ petData }) => {
+    // console.log("pet data from requist listing modal", petData);
+    const petName = petData?.petName;
+
+    const reqData = await getAdoptRequestById(petName);
+    console.log(reqData);
+
+
     return (
         <Modal>
             <Button className="w-25 rounded-md" variant="secondary">Request</Button>
+
             <Modal.Backdrop>
                 <Modal.Container>
                     <Modal.Dialog className="max-w-200">
@@ -24,31 +34,32 @@ const RequestListingModal = () => {
                                     <Table.Content aria-label="Team members" className="">
 
                                         <Table.Header>
-                                            <Table.Column isRowHeader>Name</Table.Column>
-                                            <Table.Column>Role</Table.Column>
-                                            <Table.Column>Status</Table.Column>
-                                            <Table.Column>Email</Table.Column>
+                                            <Table.Column isRowHeader>User</Table.Column>
+                                            <Table.Column>Pick Up Date</Table.Column>
+                                            <Table.Column>Actions</Table.Column>
                                         </Table.Header>
 
                                         <Table.Body>
-                                           
-                                            <Table.Row>
-                                                <Table.Cell>John Smith</Table.Cell>
-                                                <Table.Cell>CTO</Table.Cell>
-                                                <Table.Cell>Active</Table.Cell>
-                                                <Table.Cell>john@acme.com</Table.Cell>
-                                            </Table.Row>
-                                           
-                                           
+                                            {
+                                                reqData.map(item => <Table.Row key={item._id}>
+                                                    <Table.Cell>
+                                                        <p>{item?.user}</p>
+                                                        <p>{item?.email}</p>
+                                                    </Table.Cell>
 
+                                                    <Table.Cell>{item?.date}</Table.Cell>
+
+                                                    <Table.Cell className="space-x-3">
+                                                        <Button>Approve</Button>
+                                                        <Button>Reject</Button>
+                                                    </Table.Cell>
+                                                </Table.Row>)
+                                            }
                                         </Table.Body>
                                     </Table.Content>
                                 </Table.ScrollContainer>
                             </Table>
                         </Modal.Body>
-                        <Modal.Footer>
-                           
-                        </Modal.Footer>
                     </Modal.Dialog>
                 </Modal.Container>
             </Modal.Backdrop>

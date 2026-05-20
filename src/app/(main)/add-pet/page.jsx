@@ -10,9 +10,9 @@ const AddPetPage = () => {
     const router = useRouter();
 
     const { data } = authClient.useSession();
-        // console.log("data from add-pet page", data);
-        const owner = data?.user;
-        // console.log("owner in add-pet page", owner);
+    // console.log("data from add-pet page", data);
+    const owner = data?.user;
+    // console.log("owner in add-pet page", owner);
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -40,7 +40,7 @@ const AddPetPage = () => {
         }
     }
 
-    
+
     return (
         <div className='container mx-auto py-8 px-10'>
             <div>

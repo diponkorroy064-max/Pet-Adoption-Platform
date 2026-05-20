@@ -1,4 +1,3 @@
-
 import ListingCard from '@/component/shared/ListingCard';
 import { auth } from '@/lib/auth';
 import { getPetsByEmail } from '@/lib/data';

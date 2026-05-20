@@ -1,4 +1,4 @@
-'use client'
+
 import Link from 'next/link';
 import React from 'react';
 import EditListingModal from './EditListingModal';
@@ -10,7 +10,7 @@ import { Button } from '@heroui/react';
 
 const ListingCard = ({ pet }) => {
     const petData = pet;
-    console.log(petData);
+    // console.log(petData);
 
     return (
         <div className="card card-side bg-base-100 shadow-xl border-2 border-gray-300">
@@ -28,7 +28,7 @@ const ListingCard = ({ pet }) => {
                     <EditListingModal petData={petData}></EditListingModal>
                     <Link href={`/all-pets/${petData._id}`}><Button className="w-25 rounded-md">View</Button></Link>
                     <DeleteListingModal petData={petData}></DeleteListingModal>
-                    <RequestListingModal></RequestListingModal>
+                    <RequestListingModal petData={petData}></RequestListingModal>
                 </div>
             </div>
         </div>
