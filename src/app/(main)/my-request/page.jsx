@@ -15,7 +15,7 @@ const MyRequestPage = async () => {
     // console.log("user in myRequest page", userEmail);
 
     const emailBasedRequestData = await getAdoptRequestByEmail(userEmail);
-    // console.log(emailBasedRequestData);
+    console.log(emailBasedRequestData);
 
 
     return (
@@ -25,7 +25,7 @@ const MyRequestPage = async () => {
             </div>
 
             <div className='flex flex-col gap-4'>
-                {
+                {emailBasedRequestData.length === 0 ? <div className='text-center text-red-300 py-15'>There is no Adoption Request Present</div> :
                     emailBasedRequestData.map(ReqItem => <MyRequestCard ReqItem={ReqItem} key={ReqItem._id}></MyRequestCard>)
                 }
             </div>

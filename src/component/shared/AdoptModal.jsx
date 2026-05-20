@@ -10,12 +10,16 @@ const AdoptModal = ({ petDataById }) => {
     // console.log("data from adopt modal", data);
     const user = data?.user;
     // console.log("user in  adopt modal", user);
+    console.log(petDataById);
 
     const handleAdoptRequest = async(e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
         const adoptRequestData = Object.fromEntries(formData.entries());
-        console.log(adoptRequestData);
+        // console.log(adoptRequestData);
+
+        const fulData = { ...adoptRequestData, petId: petDataById._id };
+       
 
         // const { data: tokenData } = await authClient.token();
         // console.log(tokenData);
@@ -25,7 +29,7 @@ const AdoptModal = ({ petDataById }) => {
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(adoptRequestData)
+            body: JSON.stringify(fulData)
         })
         const data = await res.json();
         console.log(data);

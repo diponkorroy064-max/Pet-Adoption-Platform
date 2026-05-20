@@ -1,8 +1,8 @@
-
 import { getAdoptRequestById } from "@/lib/data";
 import { Rocket } from "@gravity-ui/icons";
 import { Button, Modal } from "@heroui/react";
 import { Table } from "@heroui/react";
+import Actions from "./Actions";
 
 
 const RequestListingModal = async ({ petData }) => {
@@ -10,7 +10,7 @@ const RequestListingModal = async ({ petData }) => {
     const petName = petData?.petName;
 
     const reqData = await getAdoptRequestById(petName);
-    console.log(reqData);
+    console.log("req data", reqData);
 
 
     return (
@@ -50,8 +50,7 @@ const RequestListingModal = async ({ petData }) => {
                                                     <Table.Cell>{item?.date}</Table.Cell>
 
                                                     <Table.Cell className="space-x-3">
-                                                        <Button>Approve</Button>
-                                                        <Button>Reject</Button>
+                                                        <Actions item={item}></Actions>
                                                     </Table.Cell>
                                                 </Table.Row>)
                                             }

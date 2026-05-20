@@ -19,7 +19,7 @@ const PetsCard = ({ pet }) => {
             <div className="card-body items-center text-center rounded-md">
                 <div className="flex justify-center gap-5">
                     <Link href={`/all-pets/${_id}`}><button className="btn btn-primary">View Details</button></Link>
-                    <button className="btn btn-secondary">Adopt Now</button>
+                    {/* <button className="btn btn-secondary">Adopt Now</button> */}
                 </div>
             </div>
 

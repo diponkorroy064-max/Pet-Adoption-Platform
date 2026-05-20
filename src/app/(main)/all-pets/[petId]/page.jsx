@@ -17,7 +17,8 @@ const PetDetailsPage = async ({ params }) => {
             <div className="card lg:card-side bg-base-100 border-2 border-gray-300 shadow-xl">
                 <div>
                     <Image className='w-full h-70 rounded-md' src={imageURL} height={40} width={40} alt='Pet image' />
-               </div>
+                </div>
+                
                 <div className="card-body">
                     <h2 className="card-title">{petName}</h2>
                     <p>{description}</p>
