@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { AlertDialog, Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -9,11 +10,16 @@ const DeleteListingModal = ({ petData }) => {
 
     const router = useRouter();
 
+
     const handleDelete = async () => {
+        const { data: tokenData } = await authClient.token();
+        console.log(tokenData);
+        
         const res = await fetch(`http://localhost:5000/pets/${petData?._id}/delete`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
         });
         const data = await res.json();

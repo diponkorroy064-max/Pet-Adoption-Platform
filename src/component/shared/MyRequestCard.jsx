@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import CancelModal from './CancelModal';
+import { Button } from '@heroui/react';
 
 
 const MyRequestCard = ({ ReqItem }) => {
@@ -20,7 +21,7 @@ const MyRequestCard = ({ ReqItem }) => {
                 <h2 className="card-title">{status==="Approved"? "Approved":status==="Rejected"?"Rejected":"Pending"}</h2>
 
                 <div className="justify-end card-actions">
-                    <Link href={`/all-pets/${petId}`} className="btn btn-primary">View</Link>
+                    <Link href={`/all-pets/${petId}`}><Button variant='primary' className="w-25 rounded-md">View</Button></Link>
                     <CancelModal ReqItem={ReqItem}></CancelModal>
                 </div>
             </div>

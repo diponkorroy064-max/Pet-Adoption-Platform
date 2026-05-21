@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from "@/lib/auth-client";
 import { Envelope } from "@gravity-ui/icons";
 import { Button, Input, Label, Modal, Surface, TextField, TextArea } from "@heroui/react";
 import { useRouter } from "next/navigation";
@@ -15,12 +16,16 @@ const EditListingModal = ({ petData }) => {
 
         const formData = new FormData(e.currentTarget);
         const updateData = Object.fromEntries(formData.entries());
-        console.log("updatedData", updateData);
+        // console.log("updatedData", updateData);
+
+        const {data:tokenData } = await authClient.token();
+        console.log(tokenData);
 
         const res = await fetch(`http://localhost:5000/pets/${_id}/update`, {
             method: 'PATCH',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(updateData)
         })

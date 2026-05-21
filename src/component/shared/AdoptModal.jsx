@@ -10,24 +10,26 @@ const AdoptModal = ({ petDataById }) => {
     // console.log("data from adopt modal", data);
     const user = data?.user;
     // console.log("user in  adopt modal", user);
-    console.log(petDataById);
+    // console.log(petDataById);
 
-    const handleAdoptRequest = async(e) => {
+    
+    const handleAdoptRequest = async (e) => {
         e.preventDefault()
         const formData = new FormData(e.currentTarget);
         const adoptRequestData = Object.fromEntries(formData.entries());
         // console.log(adoptRequestData);
 
         const fulData = { ...adoptRequestData, petId: petDataById._id };
-       
 
-        // const { data: tokenData } = await authClient.token();
-        // console.log(tokenData);
+
+        const { data: tokenData } = await authClient.token();
+        console.log(tokenData);
 
         const res = await fetch("http://localhost:5000/adoption", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(fulData)
         })

@@ -1,4 +1,5 @@
 'use client'
+import { authClient } from '@/lib/auth-client';
 import { AlertDialog, Button } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -11,17 +12,18 @@ const CancelModal = ({ ReqItem }) => {
     // console.log('cancelItem', cancelItem);
 
     const handleCancel = async () => {
-        // const { data: tokenData } = await authClient.token();
+        const { data: tokenData } = await authClient.token();
+        // console.log(tokenData);
 
         const res = await fetch(`http://localhost:5000/adoption/${cancelItem.petId}/byPetId`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
-                // authorization: `Bearer ${tokenData?.token}`
+                authorization: `Bearer ${tokenData?.token}`
             }
         });
         const data = await res.json();
-        console.log(data);
+        // console.log(data);
 
         if (data.deletedCount > 0) {
             router.push('/my-request');

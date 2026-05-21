@@ -1,3 +1,6 @@
+import { headers } from "next/headers";
+import { auth } from "./auth";
+
 
 export const getPets = async () => {
     const res = await fetch("http://localhost:5000/pets", { cache: 'no-store' });
@@ -6,8 +9,18 @@ export const getPets = async () => {
 }
 
 
-export const getPetsById = async(id) => {
-    const res = await fetch(`http://localhost:5000/pets/${id}/byId`);
+export const getPetsById = async (id) => {
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token);
+
+    const res = await fetch(`http://localhost:5000/pets/${id}/byId`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
+
     const pets = await res.json();
     // console.log(pets);
     return pets;
@@ -15,14 +28,24 @@ export const getPetsById = async(id) => {
 
 
 export const getPetsByEmail = async (email) => {
-    const res = await fetch(`http://localhost:5000/pets/${email}`);
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token);
+
+    const res = await fetch(`http://localhost:5000/pets/${email}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
     const pets = await res.json();
     // console.log(pets);
     return pets;
 }
 
-export const getAdoptRequestById = async (petNam) => {
-    const res = await fetch(`http://localhost:5000/adoption/${petNam}`);
+
+export const getAdoptRequestById = async (petId) => {
+    const res = await fetch(`http://localhost:5000/adoption/${petId}/newId`);
     const adoptReqDataById = await res.json();
     // console.log(adoptReqDataById);
 
@@ -31,7 +54,16 @@ export const getAdoptRequestById = async (petNam) => {
 
 
 export const getAdoptRequestByEmail = async (Email) => {
-    const res = await fetch(`http://localhost:5000/adoption/${Email}/userEmail`);
+    const { token } = await auth.api.getToken({
+        headers: await headers()
+    })
+    console.log(token);
+
+    const res = await fetch(`http://localhost:5000/adoption/${Email}/userEmail`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
     const adoptReqDataByEmail = await res.json();
     // console.log(adoptReqDataByEmail);
 

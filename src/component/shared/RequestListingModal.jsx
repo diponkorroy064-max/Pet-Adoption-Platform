@@ -7,10 +7,11 @@ import Actions from "./Actions";
 
 const RequestListingModal = async ({ petData }) => {
     // console.log("pet data from requist listing modal", petData);
-    const petName = petData?.petName;
+    const petId = petData?._id;
+    // console.log("petId", petId);
 
-    const reqData = await getAdoptRequestById(petName);
-    console.log("req data", reqData);
+    const reqData = await getAdoptRequestById(petId);
+    // console.log("req data", reqData);
 
 
     return (
@@ -41,7 +42,7 @@ const RequestListingModal = async ({ petData }) => {
 
                                         <Table.Body>
                                             {
-                                                reqData.map(item => <Table.Row key={item._id}>
+                                                reqData?.map(item => <Table.Row key={item._id}>
                                                     <Table.Cell>
                                                         <p>{item?.user}</p>
                                                         <p>{item?.email}</p>
