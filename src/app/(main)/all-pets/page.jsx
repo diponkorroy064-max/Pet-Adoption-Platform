@@ -1,25 +1,59 @@
+'use client';
 import PetsCard from '@/component/shared/PetsCard';
-import { getPets } from '@/lib/data';
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 
+const AllPets = () => {
 
-const AllPetsPage = async() => {
-    const petsInfo = await getPets();
-    // console.log(petsInfo);
+    const [pets, setPets] = useState([]);
+    const [searchText, setSearchText] = useState("");
+    const [selectedSpecies, setSelectedSpecies] = useState("");
+
+   
+    useEffect(() => {
+        fetch(
+            `http://localhost:5000/pets?search=${searchText}&species=${selectedSpecies}`)
+            .then(res => res.json())
+            .then(data => setPets(data));
+
+    }, [searchText, selectedSpecies]);
+    console.log(pets);
+
 
 
     return (
-        <div className='container mx-auto px-10 py-12'>
+        <div className="container max-auto mx-auto py-10 px-8">
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+            {/* Search & Filter */}
+            <div className="flex justify-between mb-10">
+
+                <input type="text" placeholder="Search by pet name" value={searchText} onChange={(e) => setSearchText(e.target.value)} className="border p-2 rounded-xl"/>
+
+                
+                <select value={selectedSpecies} onChange={(e) => setSelectedSpecies(e.target.value)}
+                    className="border p-2 rounded-xl">
+                    <option value="">All Species</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
+                    <option value="Bird">Bird</option>
+                    <option value="Rabbit">Rabbit</option>
+                    <option value="Snake">Snake</option>
+                    <option value="Fish">Fish</option>
+                </select>
+            </div>
+
+            {/* Pet Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                 {
-                    petsInfo.map(pet=> <PetsCard key={pet._id} pet={pet}></PetsCard>)
+                    pets.map(pet => <PetsCard key={pet._id} pet={pet}></PetsCard>)
                 }
+
             </div>
         </div>
     );
 };
 
-export default AllPetsPage;
+export default AllPets;
+
 

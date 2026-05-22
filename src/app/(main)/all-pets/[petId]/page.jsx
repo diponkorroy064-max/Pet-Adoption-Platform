@@ -24,7 +24,7 @@ const PetDetailsPage = async ({ params }) => {
                     <p>{description}</p>
                     <p>{breed}</p>
                     <p>{healthStatus}</p>
-                    <p>{description}</p>
+                    <p>{species}</p>
                     <div className="card-actions justify-start">
                         <AdoptModal petDataById={petDataById}></AdoptModal>
                     </div>

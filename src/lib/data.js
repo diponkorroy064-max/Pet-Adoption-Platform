@@ -3,7 +3,7 @@ import { auth } from "./auth";
 
 
 export const getPets = async () => {
-    const res = await fetch("http://localhost:5000/pets", { cache: 'no-store' });
+    const res = await fetch("http://localhost:5000/pets/all", { cache: 'no-store' });
     const pets = await res.json();
     return pets;
 }

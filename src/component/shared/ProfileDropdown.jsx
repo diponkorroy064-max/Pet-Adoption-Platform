@@ -3,6 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import { Avatar, Button } from '@heroui/react';
 import Link from 'next/link';
 import React from 'react';
+import { LuLogOut } from 'react-icons/lu';
 
 
 const ProfileDropdown = () => {
@@ -22,9 +23,8 @@ const ProfileDropdown = () => {
             </div>
 
             <div tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-md border border-gray-300 z-40 w-60 p-2 shadow-md">
-                <Link className="w-full rounded-md btn btn-outline btn-secondary" href={"/add-pet"}> Add Pet</Link>
-                <Link className="w-full rounded-md btn btn-outline btn-secondary" href={"/myListings"}>My Listings</Link>
-                <p className="w-full rounded-md btn btn-outline btn-secondary" onClick={async () => await authClient.signOut()}>Sign Out</p>
+                <Link className="w-full rounded-md btn btn-outline btn-secondary" href={"/dashboard"}>Dashboard</Link>
+                <p className="w-full rounded-md btn btn-outline btn-secondary" onClick={async () => await authClient.signOut()}>Sign Out  <LuLogOut/></p>
             </div>
         </div>
     );

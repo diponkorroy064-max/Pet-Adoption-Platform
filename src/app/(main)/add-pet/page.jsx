@@ -77,9 +77,9 @@ const AddPetPage = () => {
                             </Select.Trigger>
                             <Select.Popover>
                                 <ListBox>
-                                    <ListBox.Item id="dog" textValue="Dog"> Dog <ListBox.ItemIndicator /></ListBox.Item>
-                                    <ListBox.Item id="cat" textValue="Cat"> Cat <ListBox.ItemIndicator /></ListBox.Item>
-                                    <ListBox.Item id="bird" textValue="Bird"> Bird <ListBox.ItemIndicator /></ListBox.Item>
+                                    <ListBox.Item id="Dog" textValue="Dog"> Dog <ListBox.ItemIndicator /></ListBox.Item>
+                                    <ListBox.Item id="Cat" textValue="Cat"> Cat <ListBox.ItemIndicator /></ListBox.Item>
+                                    <ListBox.Item id="Bird" textValue="Bird"> Bird <ListBox.ItemIndicator /></ListBox.Item>
                                     <ListBox.Item id="Rabbit" textValue="Rabbit">Rabbit <ListBox.ItemIndicator /></ListBox.Item>
                                     <ListBox.Item id="Snake" textValue="Snake"> Snake <ListBox.ItemIndicator /></ListBox.Item>
                                     <ListBox.Item id="Fish" textValue="Fish"> Fish <ListBox.ItemIndicator /></ListBox.Item>

@@ -3,6 +3,7 @@ import { Rocket } from "@gravity-ui/icons";
 import { Button, Modal } from "@heroui/react";
 import { Table } from "@heroui/react";
 import Actions from "./Actions";
+import { p } from "framer-motion/client";
 
 
 const RequestListingModal = async ({ petData }) => {
@@ -41,8 +42,8 @@ const RequestListingModal = async ({ petData }) => {
                                         </Table.Header>
 
                                         <Table.Body>
-                                            {
-                                                reqData?.map(item => <Table.Row key={item._id}>
+                                            {reqData.length === 0 ? (<p>There is no Request yet</p>) :
+                                                reqData.map(item => <Table.Row key={item._id}>
                                                     <Table.Cell>
                                                         <p>{item?.user}</p>
                                                         <p>{item?.email}</p>

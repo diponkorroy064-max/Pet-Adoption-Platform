@@ -19,7 +19,8 @@ const AdoptModal = ({ petDataById }) => {
         const adoptRequestData = Object.fromEntries(formData.entries());
         // console.log(adoptRequestData);
 
-        const fulData = { ...adoptRequestData, petId: petDataById._id };
+        const fulData = { ...adoptRequestData, petId: petDataById._id, status:"pending" };
+        console.log("fulData",fulData);
 
 
         const { data: tokenData } = await authClient.token();
