@@ -32,9 +32,9 @@ const Actions = ({ item }) => {
 
     return (
         <div>
-            {itemStatus === "pending" ? <div>
+            {itemStatus === "Pending" ? <div className='flex gap-3'>
                 <Button onClick={() => handleActions("Approved")}>Approve</Button>
-                <Button onClick={() => handleActions("Rejected")}>Reject</Button></div> :
+                <Button variant='danger' onClick={() => handleActions("Rejected")}>Reject</Button></div> :
                 <div className='text-orange-300'>{itemStatus}</div>
 
             }

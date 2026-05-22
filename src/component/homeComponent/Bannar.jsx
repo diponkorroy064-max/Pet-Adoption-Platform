@@ -2,6 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import bannarImg from '@/assets/bannar2.avif'
 import 'animate.css';
+import Link from 'next/link';
+
 
 const Bannar = () => {
     return (
@@ -21,7 +23,7 @@ const Bannar = () => {
 
                 <h1 className="text-4xl text-center sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-7xl leading-none uppercase drop-shadow-md animate__animated animate__zoomInDown">
                     Find Your
-                    <span className="text-orange-500"> Perfect</span> Companion
+                    <span className="text-[#f58f95]"> Perfect</span> Companion
                 </h1>
 
                 <p className="text-center sm:text-lg md:text-xl text-slate-200 max-w-3xl font-medium leading-relaxed drop-shadow">
@@ -29,10 +31,12 @@ const Bannar = () => {
                 </p>
 
                 <div className="mt-2">
-                    <button
-                        className="px-8 py-4 bg-orange-600 hover:bg-orange-500 active:scale-95 text-white text-lg font-bold uppercase tracking-wider rounded-full transition-all duration-200 shadow-lg shadow-orange-600/30 hover:shadow-orange-500/40 cursor-pointer animate__animated animate__bounce" >
-                        Adopt Now
-                    </button>
+                    <Link href={'/all-pets'}>
+                        <button
+                            className="px-8 py-4 bg-[#f58f95] hover:bg-orange-500 active:scale-95 text-white text-lg font-bold uppercase tracking-wider rounded-full transition-all duration-200 shadow-lg shadow-orange-400/30 hover:shadow-orange-500/40 cursor-pointer animate__animated animate__bounce" >
+                            Adopt Now
+                        </button>
+                    </Link>
                 </div>
 
             </div>

@@ -44,7 +44,7 @@ const AddPetPage = () => {
     return (
         <div className='container mx-auto py-8 px-10'>
             <div>
-                <h2 className='text-3xl md:text-4xl font-extrabold text-center'>Add a Sweet Pet</h2>
+                <h2 className='text-3xl md:text-4xl font-extrabold text-center text-[#f58f95]'>Add a Sweet Pet</h2>
             </div>
 
             <form onSubmit={onSubmit} className="p-10 bg-gray-50 space-y-8 md:w-150 mx-auto border border-gray-300 my-6 shadow rounded-3xl">
@@ -58,7 +58,7 @@ const AddPetPage = () => {
                         </TextField>
 
                         <TextField name="age" isRequired>
-                            <Label>Age</Label>
+                            <Label>Age(years)</Label>
                             <Input placeholder="Enter Age" className="rounded-2xl w-60" />
                             <FieldError />
                         </TextField>
@@ -141,8 +141,8 @@ const AddPetPage = () => {
                             </Select.Trigger>
                             <Select.Popover>
                                 <ListBox>
-                                    <ListBox.Item id="Beach" textValue="Beach">Vaccinated <ListBox.ItemIndicator /></ListBox.Item>
-                                    <ListBox.Item id="Mountain" textValue="Mountain">Non Vaccination <ListBox.ItemIndicator /> </ListBox.Item>
+                                    <ListBox.Item id="Vaccinated" textValue="Vaccinated">Vaccinated <ListBox.ItemIndicator /></ListBox.Item>
+                                    <ListBox.Item id="Non-Vaccinated" textValue="Non Vaccinated">Non Vaccination <ListBox.ItemIndicator /> </ListBox.Item>
                                 </ListBox>
                             </Select.Popover>
                         </Select>
@@ -158,7 +158,7 @@ const AddPetPage = () => {
                         </TextField>
 
                         <TextField name="fee" isRequired>
-                            <Label>Adoption Fee</Label>
+                            <Label>Adoption Fee($)</Label>
                             <Input type='text'
                                 placeholder="Enter Adoption Fee"
                                 className="rounded-3xl w-60" />
@@ -189,7 +189,7 @@ const AddPetPage = () => {
                     type="submit"
                     variant="outline"
 
-                    className=" rounded-none w-full bg-cyan-500 text-white">
+                    className=" rounded-md w-full bg-[#f58f95] text-white">
                     Add a Sweet Pet
                 </Button>
             </form>

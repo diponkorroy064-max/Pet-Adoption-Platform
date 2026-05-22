@@ -26,7 +26,7 @@ const Navbar = () => {
     return (
         <div className="container mx-auto navbar bg-base-100 shadow px-10">
 
-            <div className="navbar-start">
+            <div className="navbar-start gap-3">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className=" md:hidden hover:text-red-500 hover:font-extra-bold cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
@@ -37,9 +37,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="flex justify-center items-center gap-4">
+                <div className="flex justify-center items-center gap-2">
                     <Link className="text-xl font-extrabold" href={"/"}>Pet Haven</Link>
-                    <Link className="text-xl" href={"/"}><PawPrint className="text-orange-400 font-extrabold" size={32} /></Link>
+                    <Link className="text-xl hidden md:flex" href={"/"}><PawPrint className="text-orange-400 font-extrabold" size={32} /></Link>
                </div>
             </div>
 
@@ -54,9 +54,9 @@ const Navbar = () => {
                 <div>
                     {
                         user ? (<div className="flex justify-center items-center gap-3">
-                            <h2 className="text-xl font-bold text-green-500">{user?.name}</h2>
+                            <h2 className="text-xl font-bold text-orange-400 hidden md:flex">{user?.name}</h2>
                             <ProfileDropdown></ProfileDropdown>
-                        </div>) : (<Link className="btn btn-ghost" href={"/signIn"}>Sign In</Link>)
+                        </div>) : (<Link className="btn bg-orange-400 text-white" href={"/signIn"}>Sign In</Link>)
                     }
                 </div>
             </div>

@@ -34,18 +34,17 @@ const DashboardPage = async () => {
     const totalRejected = requestedPets.filter(pet => pet.status === "Rejected");
 
 
-
     return (
         <div className='container mx-auto py-10 px-8 grid grid-cols-1 md:grid-cols-5 gap-5 '>
             <div className='border-2 border-gray-300 p-8 col-span-1 space-y-4 shadow-xl'>
                 <div className='space-y-2'>
-                    <Avatar className='w-30 h-30 mx-auto border border-gray-400'>
+                    <Avatar className='w-15 md:w-25 h-15 md:h-25 mx-auto border border-gray-400'>
                         <Avatar.Image alt="John Doe" src={user?.image}/>
                         <Avatar.Fallback>JD</Avatar.Fallback>
                     </Avatar>
                     <div className='text-center'>
                         <h2 className='text-xl text-gray-900 font-bold'>{user?.name}</h2>
-                        <h4 className='text-[13px]'>{user?.email}</h4>
+                        <h4 className='text-[13px] md:text-[10px]'>{user?.email}</h4>
                     </div>
                 </div>
 

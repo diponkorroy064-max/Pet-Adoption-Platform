@@ -7,7 +7,7 @@ import { Avatar } from "@heroui/react";
 import catImg from '@/assets/featuredImg.png';
 
 
-const WhyFeatured = () => {
+const WhatFeatured = () => {
     return (
         <section className="container mx-auto py-16 px-4 md:px-10 overflow-hidden">
             <div className="max-w-7xl mx-auto bg-[#f7f3f2] rounded-[40px] grid grid-cols-1 lg:grid-cols-2 items-center relative">
@@ -76,5 +76,5 @@ const WhyFeatured = () => {
     );
 };
 
-export default WhyFeatured;
+export default WhatFeatured;
 

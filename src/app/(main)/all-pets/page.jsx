@@ -27,11 +27,10 @@ const AllPets = () => {
             {/* Search & Filter */}
             <div className="flex justify-between mb-10">
 
-                <input type="text" placeholder="Search by pet name" value={searchText} onChange={(e) => setSearchText(e.target.value)} className="border p-2 rounded-xl"/>
-
+                <input type="text" placeholder="Search Pet by Name" value={searchText} onChange={(e) => setSearchText(e.target.value)} className="border border-gray-400 p-2 rounded-xl"/>
                 
                 <select value={selectedSpecies} onChange={(e) => setSelectedSpecies(e.target.value)}
-                    className="border p-2 rounded-xl">
+                    className="border border-gray-400 p-2 rounded-xl cursor-pointer">
                     <option value="">All Species</option>
                     <option value="Dog">Dog</option>
                     <option value="Cat">Cat</option>

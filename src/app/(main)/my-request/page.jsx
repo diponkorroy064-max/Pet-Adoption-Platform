@@ -19,7 +19,7 @@ const MyRequestPage = async () => {
 
 
     return (
-        <div className='container mx-auto py-10'>
+        <div className='container mx-auto py-10 px-5 md:px-25 lg:px-50'>
             <div>
 
             </div>

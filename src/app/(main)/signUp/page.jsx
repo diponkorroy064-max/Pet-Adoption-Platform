@@ -3,6 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import { Check } from '@gravity-ui/icons';
 import { Button, FieldError, Form, Input, Label, TextField } from '@heroui/react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa6';
@@ -13,6 +14,7 @@ import { toast } from 'react-toastify';
 
 const SignUpPage = () => {
     const [isShowPass, setIsShowPass] = useState(false);
+    const router = useRouter();
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +27,7 @@ const SignUpPage = () => {
             image: user.image,
             email: user.email,
             password: user.password,
-            callbackURL: "/signIn",
+            // callbackURL: "/",
         });
 
         console.log("sign up response", data, error);
@@ -34,7 +36,8 @@ const SignUpPage = () => {
             toast.error("Sign up failed " + error.message);
         }
         else if (data) {
-            toast.success("Sign up successfull! Verify your Email")
+            toast.success("Sign up successfull! Verify your Email");
+            router.push('/');
         }
     };
 
@@ -48,13 +51,13 @@ const SignUpPage = () => {
 
 
     return (
-        <div className='container mx-auto py-20 space-y-5'>
+        <div className='container mx-auto py-20 space-y-5 px-5'>
             <div className='text-center'>
-                <h2 className='text-3xl font-extrabold'>Create Account</h2>
-                <p>Start your advent</p>
+                <h2 className='text-3xl font-extrabold text-[#f58f95]'>Create Account</h2>
+                <p>Start your adventure with Pet Haven</p>
             </div>
 
-            <div className='mx-auto border border-gray-400 rounded-2xl shadow w-150 p-10 space-y-3'>
+            <div className='mx-auto border border-gray-400 rounded-2xl shadow md:w-150 p-10 space-y-3'>
                 <Form onSubmit={onSubmit} className="flex flex-col gap-4 space-y-3" >
 
                     <TextField
@@ -102,6 +105,9 @@ const SignUpPage = () => {
                             if (!/[A-Z]/.test(value)) {
                                 return "Password must contain at least one uppercase letter";
                             }
+                            if (!/[a-z]/.test(value)) {
+                                return "Password must contain at least one lowercase letter";
+                            }
                             if (!/[0-9]/.test(value)) {
                                 return "Password must contain at least one number";
                             }
@@ -141,7 +147,7 @@ const SignUpPage = () => {
                     </div>
 
                     <div className="flex gap-2">
-                        <Button className="w-full rounded-none" type='submit'>
+                        <Button className="w-full rounded-md bg-[#f58f95] text-white" type='submit'>
                             <Check />
                             Sign Up
                         </Button>
@@ -153,7 +159,7 @@ const SignUpPage = () => {
                 </Form>
 
                 <div className='flex justify-center flex-col space-y-3'>
-                    <Button onClick={handleSigninGoogle} className="w-full rounded-none bg-white border border-gray-300 hover:bg-cyan-200 text-gray-900"><FcGoogle /> Continue with Google</Button>
+                    <Button onClick={handleSigninGoogle} className="w-full rounded-md bg-white border border-gray-300 hover:text-white hover:bg-[#f58f95] text-gray-900"><FcGoogle /> Continue with Google</Button>
 
                     <h2 className='text-center'>Already have an account? <span><Link className='text-red-500' href={'/signIn'}>Sign In</Link></span></h2>
                 </div>
