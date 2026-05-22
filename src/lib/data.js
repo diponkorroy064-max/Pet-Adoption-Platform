@@ -3,7 +3,7 @@ import { auth } from "./auth";
 
 
 export const getPets = async () => {
-    const res = await fetch("http://localhost:5000/pets/all", { cache: 'no-store' });
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets/all`, { cache: 'no-store' });
     const pets = await res.json();
     return pets;
 }
@@ -15,7 +15,7 @@ export const getPetsById = async (id) => {
     })
     console.log(token);
 
-    const res = await fetch(`http://localhost:5000/pets/${id}/byId`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets/${id}/byId`, {
         headers: {
             authorization: `Bearer ${token}`
         }
@@ -33,7 +33,8 @@ export const getPetsByEmail = async (email) => {
     })
     console.log(token);
 
-    const res = await fetch(`http://localhost:5000/pets/${email}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets/${email}`, {
+        cache: 'no-store',
         headers: {
             authorization: `Bearer ${token}`
         }
@@ -45,7 +46,7 @@ export const getPetsByEmail = async (email) => {
 
 
 export const getAdoptRequestById = async (petId) => {
-    const res = await fetch(`http://localhost:5000/adoption/${petId}/newId`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoption/${petId}/newId`);
     const adoptReqDataById = await res.json();
     // console.log(adoptReqDataById);
 
@@ -59,7 +60,7 @@ export const getAdoptRequestByEmail = async (Email) => {
     })
     console.log(token);
 
-    const res = await fetch(`http://localhost:5000/adoption/${Email}/userEmail`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoption/${Email}/userEmail`, {
         headers: {
             authorization: `Bearer ${token}`
         }

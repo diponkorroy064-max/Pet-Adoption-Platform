@@ -15,7 +15,7 @@ const DeleteListingModal = ({ petData }) => {
         const { data: tokenData } = await authClient.token();
         console.log(tokenData);
         
-        const res = await fetch(`http://localhost:5000/pets/${petData?._id}/delete`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets/${petData?._id}/delete`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

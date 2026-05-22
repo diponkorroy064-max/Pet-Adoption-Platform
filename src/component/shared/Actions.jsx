@@ -17,24 +17,25 @@ const Actions = ({ item }) => {
         const { data: tokenData } = await authClient.token();
         // console.log(tokenData);
 
-        const res = await fetch(`http://localhost:5000/adoption/${updatedItem.petId}/update`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoption/${updatedItem.petId}/update`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${tokenData?.token}`
             },
-            body: JSON.stringify({ status: status })
+            body: JSON.stringify({ status: status, request: "Addopted" })
         })
         const data = await res.json()
         console.log(data);
-
-
     }
+
 
     return (
         <div>
-            {itemStatus === "pending" ? <div> <Button onClick={() => handleActions("Approved")}>Approve</Button>
-                <Button onClick={() => handleActions("Rejected")}>Reject</Button></div> : <div className='text-orange-300'>{itemStatus}</div>
+            {itemStatus === "pending" ? <div>
+                <Button onClick={() => handleActions("Approved")}>Approve</Button>
+                <Button onClick={() => handleActions("Rejected")}>Reject</Button></div> :
+                <div className='text-orange-300'>{itemStatus}</div>
 
             }
         </div>

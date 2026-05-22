@@ -15,7 +15,7 @@ const CancelModal = ({ ReqItem }) => {
         const { data: tokenData } = await authClient.token();
         // console.log(tokenData);
 
-        const res = await fetch(`http://localhost:5000/adoption/${cancelItem.petId}/byPetId`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoption/${cancelItem.petId}/byPetId`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

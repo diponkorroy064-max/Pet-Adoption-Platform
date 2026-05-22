@@ -19,14 +19,14 @@ const AdoptModal = ({ petDataById }) => {
         const adoptRequestData = Object.fromEntries(formData.entries());
         // console.log(adoptRequestData);
 
-        const fulData = { ...adoptRequestData, petId: petDataById._id, status:"pending" };
+        const fulData = { ...adoptRequestData, petId: petDataById._id, status:"Pending" };
         console.log("fulData",fulData);
 
 
         const { data: tokenData } = await authClient.token();
         console.log(tokenData);
 
-        const res = await fetch("http://localhost:5000/adoption", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/adoption`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

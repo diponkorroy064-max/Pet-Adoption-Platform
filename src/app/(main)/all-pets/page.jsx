@@ -12,7 +12,7 @@ const AllPets = () => {
    
     useEffect(() => {
         fetch(
-            `http://localhost:5000/pets?search=${searchText}&species=${selectedSpecies}`)
+            `${process.env.NEXT_PUBLIC_SERVER_URL}/pets?search=${searchText}&species=${selectedSpecies}`)
             .then(res => res.json())
             .then(data => setPets(data));
 
