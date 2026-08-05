@@ -4,6 +4,7 @@ import StatSection from "@/component/homeComponent/StatSection";
 import WhyFeatured from "@/component/homeComponent/WhatFeatured";
 import Image from "next/image";
 
+
 export default function Home() {
   return (
     <div className=" dark:bg-black">

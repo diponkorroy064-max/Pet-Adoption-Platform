@@ -1,11 +1,15 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 
+
 const StatSection = () => {
     return (
-        <div className='container mx-auto py-8'>
-            <div className='flex justify-center items-center flex-wrap gap-6'>
+        <div className='container mx-auto py-8 space-y-8'>
+            <div>
+                <h2 className='text-4xl font-extrabold text-[#f58f95] text-center'>Our Successfull Statistics</h2>
+            </div>
 
+            <div className='flex justify-center items-center flex-wrap gap-6'>
                 <div className='w-70 flex justify-center items-center gap-3 border-2 border-cyan-400 rounded-tl-xl rounded-br-xl bg-cyan-50 px-8 py-6'>
                     <div>
                         <h1 className='flex items-center text-3xl font-bold text-gray-900'>180 <FaPlus className='text-2xl'/></h1>

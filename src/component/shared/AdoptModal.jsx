@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Envelope } from "@gravity-ui/icons";
 import { Button, FieldError, Input, Label, Modal, Surface, TextField } from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 
@@ -9,8 +10,10 @@ const AdoptModal = ({ petDataById }) => {
     const { data } = authClient.useSession();
     // console.log("data from adopt modal", data);
     const user = data?.user;
-    // console.log("user in  adopt modal", user);
+    console.log("user in  adopt modal", user);
     // console.log(petDataById);
+
+    const router = useRouter();
 
     
     const handleAdoptRequest = async (e) => {
@@ -20,8 +23,7 @@ const AdoptModal = ({ petDataById }) => {
         // console.log(adoptRequestData);
 
         const fulData = { ...adoptRequestData, petId: petDataById._id, status:"Pending" };
-        console.log("fulData",fulData);
-
+        console.log("fulData", fulData);
 
         const { data: tokenData } = await authClient.token();
         console.log(tokenData);
@@ -42,10 +44,18 @@ const AdoptModal = ({ petDataById }) => {
         }
     }
 
+    const handle = () => {
+        if (user?.email===petDataById?.email) {
+            toast.warning('You cannot sent request to your pet!')
+        }
+        router.push(`/all-pets/${petDataById?._id}`);
+        return
+    }
+
 
     return (
         <Modal>
-            <Button className='rounded-md w-50'>Adopt Now</Button>
+            <Button onClick={handle} className='rounded-md w-50'>Adopt Now</Button>
 
             <Modal.Backdrop>
                 <Modal.Container placement="auto">

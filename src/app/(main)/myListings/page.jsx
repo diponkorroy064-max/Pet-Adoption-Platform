@@ -18,6 +18,7 @@ const MyListingsPage = async () => {
     console.log("filtered pets", filteredPets);
 
 
+
     return (
         <div className='px-5 container mx-auto'>
 
@@ -32,7 +33,7 @@ const MyListingsPage = async () => {
                         <div className='text-gray-500 flex gap-8 font-bold'>
                             <span>Total Listings {filteredPets.length}</span>
                             <span>Available {filteredPets.length}</span>
-                            <span>Adopted </span>
+                            <span>Adopted 0</span>
                         </div>
                     </div>
                 </div>

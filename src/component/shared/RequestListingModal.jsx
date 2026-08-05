@@ -3,7 +3,6 @@ import { Rocket } from "@gravity-ui/icons";
 import { Button, Modal } from "@heroui/react";
 import { Table } from "@heroui/react";
 import Actions from "./Actions";
-import { p } from "framer-motion/client";
 
 
 const RequestListingModal = async ({ petData }) => {
@@ -12,7 +11,7 @@ const RequestListingModal = async ({ petData }) => {
     // console.log("petId", petId);
 
     const reqData = await getAdoptRequestById(petId);
-    // console.log("req data", reqData);
+    console.log("req data", reqData);
 
 
     return (
@@ -27,7 +26,7 @@ const RequestListingModal = async ({ petData }) => {
                             <Modal.Icon className="bg-default text-foreground">
                                 <Rocket className="size-5" />
                             </Modal.Icon>
-                            <Modal.Heading>Welcome to HeroUI</Modal.Heading>
+                            <Modal.Heading>Adoption request in your list</Modal.Heading>
                         </Modal.Header>
 
                         <Modal.Body>
@@ -42,20 +41,46 @@ const RequestListingModal = async ({ petData }) => {
                                         </Table.Header>
 
                                         <Table.Body>
-                                            {reqData.length === 0 ? (<p>There is no Request yet</p>) :
-                                                reqData.map(item => <Table.Row key={item._id}>
-                                                    <Table.Cell>
-                                                        <p>{item?.user}</p>
-                                                        <p>{item?.email}</p>
+                                            {reqData.length === 0 ? (
+                                                <Table.Row>
+                                                    <Table.Cell colSpan={3}>
+                                                        <p className="py-6 text-center text-red-400 font-medium">
+                                                            There is no request yet
+                                                        </p>
                                                     </Table.Cell>
+                                                </Table.Row>
+                                            ) : (
+                                                reqData.map((item) => (
+                                                    <Table.Row
+                                                        key={item._id}
+                                                        className="hover:bg-muted/40 transition-colors">
+                                                       
+                                                        <Table.Cell>
+                                                            <div className="flex flex-col">
+                                                                <span className="font-medium">
+                                                                    {item?.user}
+                                                                </span>
 
-                                                    <Table.Cell>{item?.date}</Table.Cell>
+                                                                <span className="text-sm text-muted-foreground">
+                                                                    {item?.email}
+                                                                </span>
+                                                            </div>
+                                                        </Table.Cell>
 
-                                                    <Table.Cell className="space-x-3">
-                                                        <Actions item={item}></Actions>
-                                                    </Table.Cell>
-                                                </Table.Row>)
-                                            }
+                                                        <Table.Cell>
+                                                            <span className="text-sm">
+                                                                {item?.date}
+                                                            </span>
+                                                        </Table.Cell>
+
+                                                        <Table.Cell>
+                                                            <div className="flex items-center gap-2">
+                                                                <Actions item={item} />
+                                                            </div>
+                                                        </Table.Cell>
+                                                    </Table.Row>
+                                                ))
+                                            )}
                                         </Table.Body>
                                     </Table.Content>
                                 </Table.ScrollContainer>

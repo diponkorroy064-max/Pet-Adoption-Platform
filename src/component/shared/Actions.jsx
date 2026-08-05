@@ -2,7 +2,9 @@
 import { authClient } from '@/lib/auth-client';
 import { Button } from '@heroui/react';
 import { div } from 'framer-motion/client';
+import { useRouter } from 'next/navigation';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 
 const Actions = ({ item }) => {
@@ -10,6 +12,8 @@ const Actions = ({ item }) => {
     console.log("update from actions", updatedItem);
     const itemStatus = updatedItem.status;
     console.log("item status", itemStatus);
+
+    const router = useRouter();
 
     
     const handleActions = async (status) => {
@@ -27,8 +31,18 @@ const Actions = ({ item }) => {
         })
         const data = await res.json()
         console.log(data);
-    }
 
+        if (status==="Approved") {
+            toast.success(`Send ${status} Request`);
+        }
+        else {
+            toast.warning(`Send ${status} Request`);
+        }
+        if (status) {
+            router.push('/myListings');
+        }
+    }
+    
 
     return (
         <div>
@@ -36,7 +50,6 @@ const Actions = ({ item }) => {
                 <Button onClick={() => handleActions("Approved")}>Approve</Button>
                 <Button variant='danger' onClick={() => handleActions("Rejected")}>Reject</Button></div> :
                 <div className='text-orange-300'>{itemStatus}</div>
-
             }
         </div>
     );

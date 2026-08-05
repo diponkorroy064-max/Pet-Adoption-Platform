@@ -1,48 +1,93 @@
-import Image from 'next/image';
-import React from 'react';
-import bannarImg from '@/assets/bannar2.avif'
-import 'animate.css';
-import Link from 'next/link';
+"use client";
+
+import Image from "next/image";
+import React from "react";
+import bannarImg from "@/assets/bannar2.avif";
+import "animate.css";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 
 const Bannar = () => {
     return (
-        <section className="container mx-auto relative w-full h-[60vh] min-h-125 md:h-[80vh] flex items-center justify-start text-white overflow-hidden">
+        <section className="relative w-full h-[65vh] sm:h-[70vh] lg:h-[85vh] min-h-130 overflow-hidden">
 
+            {/* Background */}
             <div className="absolute inset-0 z-0">
-                <Image src={bannarImg} height={400} width={400} alt="Happy Paws Pet Shop Banner" className="w-full h-full object-cover object-center brightness-[0.4] md:brightness-[0.6]" />
-                
-                <div className="absolute inset-0 bg-linear-to-r from-slate-900/90 via-slate-900/50 to-transparent" />
+                <Image
+                    src={bannarImg}
+                    alt="Happy Paws Pet Shop Banner"
+                    fill
+                    priority
+                    className="object-cover object-center scale-105"/>
+
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-linear-to-r from-black/60 via-black/10 to-black/60" />
+
+                {/* Extra Blur */}
+                <div className="absolute inset-0 backdrop-brightness-75" />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full flex flex-col items-center gap-4 md:gap-6">
+            {/* Content */}
+            <div className="relative z-10 h-full flex items-center justify-center px-5 sm:px-8">
+                <div className="max-w-5xl text-center flex flex-col items-center gap-5">
 
-                <span className="text-xs md:text-sm font-semibold tracking-widest text-orange-400 uppercase bg-orange-400/10 px-3 py-1 rounded-full border border-orange-400/20">
-                    Pet Adoption Platform
-                </span>
+                    {/* Badge */}
+                    <motion.span
+                        initial={{ opacity: 0, y: -40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase text-orange-300 bg-orange-500/15 border border-orange-300/40 backdrop-blur-md px-5 py-2 rounded-full">
+                        Pet Adoption Platform
+                    </motion.span>
 
-                <h1 className="text-4xl text-center sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-7xl leading-none uppercase drop-shadow-md animate__animated animate__zoomInDown">
-                    Find Your
-                    <span className="text-[#f58f95]"> Perfect</span> Companion
-                </h1>
+                    {/* Heading */}
+                    <motion.h1
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold uppercase leading-tight text-gray-300">
+                        Find Your
+                        <span className="text-[#f58f95]"> Perfect</span>
+                        <br/>
+                        Companion
+                    </motion.h1>
 
-                <p className="text-center sm:text-lg md:text-xl text-slate-200 max-w-3xl font-medium leading-relaxed drop-shadow">
-                    Explore more than hundreds of loving pets waiting for a forever home. We offer premium pet supplies, expert care, and joyful adoption services.
-                </p>
+                    {/* Description */}
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                        className="max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 leading-8">
+                        Explore more than hundreds of loving pets waiting for a
+                        forever home. We offer premium pet supplies, expert care,
+                        and joyful adoption services.
+                    </motion.p>
 
-                <div className="mt-2">
-                    <Link href={'/all-pets'}>
-                        <button
-                            className="px-8 py-4 bg-[#f58f95] hover:bg-orange-500 active:scale-95 text-white text-lg font-bold uppercase tracking-wider rounded-full transition-all duration-200 shadow-lg shadow-orange-400/30 hover:shadow-orange-500/40 cursor-pointer animate__animated animate__bounce" >
-                            Adopt Now
-                        </button>
-                    </Link>
+                    {/* Button */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                            delay: 0.7,
+                            duration: 0.5,
+                        }}
+                        className="pt-3">
+                        <Link href="/all-pets">
+                            <button className="group relative overflow-hidden rounded-full bg-[#f58f95] px-8 sm:px-10 py-3.5 sm:py-4 text-base sm:text-lg font-bold uppercase tracking-wider text-white transition-all duration-300 hover:-translate-y-1 hover:bg-orange-500 hover:shadow-2xl hover:shadow-orange-400/40 active:scale-95 cursor-pointer">
+
+                                <span className="relative z-10">
+                                    Adopt Now
+                                </span>
+
+                                <span className="absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-500 group-hover:translate-x-0" />
+                            </button>
+                        </Link>
+                    </motion.div>
                 </div>
-
             </div>
         </section>
     );
 };
 
 export default Bannar;
-

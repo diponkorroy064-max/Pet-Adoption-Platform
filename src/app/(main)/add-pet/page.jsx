@@ -21,10 +21,14 @@ const AddPetPage = () => {
         const petsData = Object.fromEntries(formData.entries());
         console.log(petsData);
 
+        const { data: tokenData } = await authClient.token();
+        console.log(tokenData);
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/pets`, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${tokenData?.token}`
             },
             body: JSON.stringify(petsData)
         })

@@ -7,7 +7,7 @@ import React from 'react';
 const PetDetailsPage = async ({ params }) => {
     const {petId} = await params;
     const petDataById = await getPetsById(petId);
-    // console.log(petDataById);
+    console.log(petDataById);
 
     const { age, breed, description, email, fee, gender, healthStatus, imageURL, location, petName, species, vaccination, _id } = petDataById;
 
