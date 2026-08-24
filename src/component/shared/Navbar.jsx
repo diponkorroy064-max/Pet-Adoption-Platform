@@ -1,5 +1,4 @@
 'use client'
-
 import Link from "next/link";
 import Navlinks from "./Navlinks";
 import { authClient } from "@/lib/auth-client";
@@ -10,10 +9,13 @@ const links = (
     <>
         <li><Navlinks href="/">Home</Navlinks></li>
         <li><Navlinks href="/all-pets">All Pets</Navlinks></li>
+        <li><Navlinks href="/about">About Us</Navlinks></li>
+        <li><Navlinks href="/contact">Contact</Navlinks></li>
         <li><Navlinks href="/my-request">My Request</Navlinks></li>
         <li><Navlinks href="/add-pet">Add Pet</Navlinks></li>
     </>
 );
+
 
 const Navbar = () => {
 
@@ -33,8 +35,7 @@ const Navbar = () => {
 
                         <label
                             tabIndex={0}
-                            className="btn btn-ghost lg:hidden"
-                        >
+                            className="btn btn-ghost lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-6 w-6"

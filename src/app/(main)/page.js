@@ -1,7 +1,8 @@
-import Bannar from "@/component/homeComponent/Bannar";
-import Featured from "@/component/homeComponent/Featured";
-import StatSection from "@/component/homeComponent/StatSection";
-import WhyFeatured from "@/component/homeComponent/WhatFeatured";
+import Bannar from "@/component/home-component/Bannar";
+import Featured from "@/component/home-component/Featured";
+import PetCareTips from "@/component/home-component/PetCareTips";
+import StatSection from "@/component/home-component/StatSection";
+import WhyFeatured from "@/component/home-component/WhatFeatured";
 import Image from "next/image";
 
 
@@ -11,6 +12,7 @@ export default function Home() {
       <Bannar></Bannar>
       <Featured></Featured>
       <WhyFeatured></WhyFeatured>
+      <PetCareTips></PetCareTips>
       <StatSection></StatSection>
     </div>
   );
