@@ -40,7 +40,7 @@ const stats = [
 
 const StatSection = () => {
     return (
-        <section className="py-20 bg-linear-to-b from-white via-orange-50 to-white">
+        <section className="py-20 bg-linear-to-b from-orange-50 via-white to-white">
 
             <div className="container mx-auto px-5 lg:px-8">
 
