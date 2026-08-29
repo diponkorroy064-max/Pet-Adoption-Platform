@@ -49,9 +49,10 @@ const cardVariants = {
     }),
 }
 
+
 export default function ServicesGrid() {
     return (
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-10 md:py-15 lg:py-20 bg-linear-to-b from-orange-50 to-white">
             <div className="container mx-auto px-4 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

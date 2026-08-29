@@ -1,5 +1,5 @@
 import AdoptModal from '@/component/shared/AdoptModal';
-import { getPetsById } from '@/lib/data';
+import { getPetsById } from '@/lib/api/data';
 import Image from 'next/image';
 import React from 'react';
 import {

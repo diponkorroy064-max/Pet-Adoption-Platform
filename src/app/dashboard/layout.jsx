@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { UserIcon, Menu } from "lucide-react";
@@ -30,14 +29,11 @@ export default function DashboardLayout({ children }) {
         );
     }
 
+
     return (
         <div className="min-h-screen bg-gray-50 flex">
             {/* Fixed Responsive Sidebar */}
-            <Sidebar
-                userRole={user.role}
-                isOpen={isMobileOpen}
-                onClose={() => setIsMobileOpen(false)}
-            />
+            <Sidebar userRole={user.role} isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)}/>
 
             {/* Main Content Area (Offset by lg:pl-64 for fixed sidebar spacing) */}
             <div className="flex-1 flex flex-col min-w-0 lg:pl-64">
@@ -49,8 +45,7 @@ export default function DashboardLayout({ children }) {
                         <button
                             onClick={() => setIsMobileOpen(true)}
                             className="lg:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition active:scale-95 cursor-pointer"
-                            aria-label="Open Sidebar"
-                        >
+                            aria-label="Open Sidebar">
                             <Menu size={24} />
                         </button>
 
@@ -61,8 +56,8 @@ export default function DashboardLayout({ children }) {
 
                     <div className="flex items-center gap-3 shrink-0">
                         <div className="text-right hidden sm:block">
-                            <p className="text-sm font-bold text-gray-800">{user.name}</p>
-                            <p className="text-xs text-gray-400 capitalize">{user.role || "User"}</p>
+                            <p className="text-md font-bold text-gray-800">{user.name}</p>
+                            <p className={`text-xs capitalize badge badge-outline ${user.role=="admin"? 'badge-warning' : user.role=="owner"? 'badge-primary' : 'badge-secondary'}`}>{user.role || "User"}</p>
                         </div>
 
                         <div className="w-10 h-10 rounded-full overflow-hidden border border-orange-200 bg-orange-100 flex items-center justify-center">

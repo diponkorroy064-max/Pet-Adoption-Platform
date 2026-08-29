@@ -35,8 +35,8 @@ const Banner = () => {
     }, []);
 
     return (
-        <section className="relative w-full min-h-[85vh] bg-linear-to-b from-orange-50/50 via-white to-white overflow-hidden py-12 lg:py-0 flex items-center">
-            <div className="container mx-auto px-5 sm:px-8 lg:px-12">
+        <section className="relative w-full min-h-[85vh] bg-linear-to-b from-orange-50/50 via-white to-white overflow-hidden py-12 md:py-10 flex items-center">
+            <div className="px-5 sm:px-8 lg:px-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
                     {/* Left Column: Text Content */}
@@ -56,8 +56,7 @@ const Banner = () => {
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
-                            className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight text-gray-900"
-                        >
+                            className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight text-gray-900">
                             Find Your{" "}
                             <span className="text-orange-500">Perfect</span>{" "}
                             Companion
@@ -105,7 +104,7 @@ const Banner = () => {
                     </div>
 
                     {/* Right Column: Animated Image Slider */}
-                    <div className="relative w-full h-95 sm:h-112.5 lg:h-120 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
+                    <div className="relative w-full h-95 sm:h-112.5 lg:h-110 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gray-100">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndex}

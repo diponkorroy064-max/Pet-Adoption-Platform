@@ -1,8 +1,9 @@
 import React from 'react';
 import PetsCard from '../shared/PetsCard';
-import { getPets } from '@/lib/data';
+import { getPets } from '@/lib/api/data';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+
 
 const Featured = async () => {
     const petsInfo = await getPets();
@@ -32,7 +33,7 @@ const Featured = async () => {
       `}</style>
 
             {/* Section Header */}
-            <div className="container mx-auto px-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
+            <div className="px-6 flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
                 <div>
                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 text-orange-600 text-xs font-bold uppercase tracking-wider mb-3">
                         <Sparkles size={14} />
@@ -41,7 +42,7 @@ const Featured = async () => {
                     <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
                         Featured <span className="text-orange-500">Pets</span>
                     </h2>
-                    <p className="text-gray-500 text-sm sm:text-base mt-1 max-w-lg">
+                    <p className="text-gray-500 text-sm sm:text-base mt-1">
                         These lovable companions are looking for a forever home. Take a look and find your new best friend.
                     </p>
                 </div>

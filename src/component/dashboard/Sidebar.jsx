@@ -62,16 +62,13 @@ const Sidebar = ({ userRole = "user", isOpen = false, onClose = () => { } }) => 
                     </div>
 
                     {/* Dynamic Nav Links */}
-                    <nav className="space-y-1">
+                    <nav className="space-y-1 flex flex-col gap-2">
                         {navItems.map((item) => {
                             const Icon = item.icon;
                             const isActive = pathname === item.href;
 
                             return (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    onClick={onClose} // Auto close drawer on navigation
+                                <Link key={item.href} href={item.href} onClick={onClose}
                                     className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${isActive
                                             ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                                             : "text-gray-600 hover:bg-orange-50 hover:text-orange-600"
@@ -96,8 +93,7 @@ const Sidebar = ({ userRole = "user", isOpen = false, onClose = () => { } }) => 
                             onClose();
                             await authClient.signOut();
                         }}
-                        className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition cursor-pointer"
-                    >
+                        className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-red-600 hover:bg-red-50 transition cursor-pointer">
                         <LogOut size={18} />
                         <span>Sign Out</span>
                     </button>

@@ -127,7 +127,7 @@ const HappyCustomers = () => {
                 <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
                     Over <span className="text-orange-500">30+ Happy</span> Adopters
                 </h2>
-                <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
+                <p className="text-gray-500 text-sm sm:text-base mx-auto">
                     See what our community members have to say about finding their lifetime pet companions.
                 </p>
             </div>
