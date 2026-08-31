@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { User, Mail, Phone, MapPin, Calendar, Heart, PawPrint, ShieldCheck, Edit3, Camera, Settings, LogOut } from 'lucide-react';
 import { Button } from '@heroui/react';
 import { getUserProfile, updateUserProfile } from '@/lib/api/user';
-import EditProfileModal from '@/component/dashboard/EditProfileModal';
+import EditProfileModal from '@/component/dashboard/user/EditProfileModal';
 import { toast } from 'react-toastify';
 
 
@@ -20,6 +20,7 @@ const UserProfileClient = ({ currentUserId }) => {
         const loadUserData = async () => {
             try {
                 const res = await getUserProfile(userId);
+                console.log('res from user profile client', res);
                 setUser(res.data);
             } catch (err) {
                 console.error(err.message);

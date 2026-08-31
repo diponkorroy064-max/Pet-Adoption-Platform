@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "PetHaven",
     images: [
       {
-        url: "/og-image.png", // Place an image inside public/og-image.png
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "PetHaven Platform Preview",

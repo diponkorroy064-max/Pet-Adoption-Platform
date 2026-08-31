@@ -1,9 +1,11 @@
-const BaseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000';
-const API_BASE_URL = `${BaseUrl}/api`;
+// const BaseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:5000';
+
+// const API_BASE_URL = `${BaseUrl}/api`;
 
 
 /*================================
- * Fetch User Profile by ID
+ * Fetch User Profile by ID 
 =================================*/
 export const getUserProfile = async (userId) => {
     try {

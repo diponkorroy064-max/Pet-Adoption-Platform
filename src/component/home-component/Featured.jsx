@@ -1,8 +1,9 @@
 import React from 'react';
 import PetsCard from '../shared/PetsCard';
-import { getPets } from '@/lib/api/data';
+// import { getPets } from '@/lib/api/data';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { getPets } from '@/lib/api/data';
 
 
 const Featured = async () => {

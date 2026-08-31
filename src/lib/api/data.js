@@ -10,6 +10,8 @@ export const getPets = async () => {
 }
 
 
+
+
 export const getPetsById = async (id) => {
     const { token } = await auth.api.getToken({
         headers: await headers()
